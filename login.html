@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Σύνδεση</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 12px #aaa;
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label, input {
+            margin-bottom: 10px;
+        }
+        .theme-toggle {
+            margin: 10px 0;
+            padding: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            outline: none;
+        }
+        /* Dark theme styles */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .container.dark-mode {
+            background-color: #333;
+            border-color: #555;
+        }
+        input.dark-mode {
+            background-color: #444;
+            color: white;
+            border: 1px solid #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Σύνδεση</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">Αλλαγή Θέματος</button>
+        <form action="login.php" method="post">
+            <label for="username">Όνομα Χρήστη:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Κωδικός:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Σύνδεση">
+        </form>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const container = document.querySelector('.container');
+            const inputs = document.querySelectorAll('input');
+
+            body.classList.toggle("dark-mode");
+            container.classList.toggle("dark-mode");
+
+            inputs.forEach(input => {
+                input.classList.toggle("dark-mode");
+            });
+        }
+    </script>
+</body>
+</html>
